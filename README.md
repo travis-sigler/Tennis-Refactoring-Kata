@@ -1,7 +1,5 @@
 # Tennis Refactoring Kata
 
-There are three versions of this refactoring kata, each with their own design smells and challenges. We suggest you start with the first one, with the class "TennisGame1". The test suite provided is fairly comprehensive, and fast to run. You should not need to change the tests, only run them often as you refactor.
-
 ## Goal
 The aim of this Kata is to refactor the code into a state that you would be happy leaving for your peers (or your future self!) to work on.
 
