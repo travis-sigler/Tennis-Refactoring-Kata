@@ -1,10 +1,24 @@
 # Tennis Refactoring Kata
 
-Imagine you work for a consultancy company, and one of your colleagues has been doing some work for the Tennis Society. The contract is for 10 hours billable work, and your colleague has spent 8.5 hours working on it. Unfortunately he has now fallen ill. He says he has completed the work, and the tests all pass. Your boss has asked you to take over from him. She wants you to spend an hour or so on the code so she can bill the client for the full 10 hours. She instructs you to tidy up the code a little and perhaps make some notes so you can give your colleague some feedback on his chosen design. You should also prepare to talk to your boss about the value of this refactoring work, over and above the extra billable hours.
+There are three versions of this refactoring kata, each with their own design smells and challenges. We suggest you start with the first one, with the class "TennisGame1". The test suite provided is fairly comprehensive, and fast to run. You should not need to change the tests, only run them often as you refactor.
 
-There are three versions of this refactoring kata, each with their own design smells and challenges. I suggest you start with the first one, with the class "TennisGame1". The test suite provided is fairly comprehensive, and fast to run. You should not need to change the tests, only run them often as you refactor.
+## Goal
+The aim of this Kata is to refactor the code into a state that you would be happy leaving for your peers (or your future self!) to work on.
 
-If you like this Kata, you may be interested in my book, ["The Coding Dojo Handbook"](https://leanpub.com/codingdojohandbook)
+## Considerations
+
+* We're looking for incremental improvements, so commit as often as you can. 
+* Use the tests to provide feedback on your changes.
+* Ask yourself:
+  * Is the code readable?
+  * Does the code express intent well?
+  * Is there any obscure logic that could be simplified?
+
+## Scope
+
+We're only looking for refactorings here. The overall behaviour of the code should not change. However, you are permitted to change the public interface if you deem it necessary.
+
+You need only report the score for the current game. Sets and Matches are out of scope.
 
 ## Tennis Kata
 
@@ -18,24 +32,3 @@ You can read more about Tennis scores [here](http://en.wikipedia.org/wiki/Tennis
 2. The running score of each game is described in a manner peculiar to tennis: scores from zero to three points are described as "Love", "Fifteen", "Thirty", and "Forty" respectively.
 3. If at least three points have been scored by each player, and the scores are equal, the score is "Deuce".
 4. If at least three points have been scored by each side and a player has one more point than his opponent, the score of the game is "Advantage" for the player in the lead.
-
-You need only report the score for the current game. Sets and Matches are out of scope.
-
-## Questions to discuss afterwards
-
-* How did it feel to work with such fast, comprehensive tests?
-* Did you make mistakes while refactoring that were caught by the tests?
-* If you used a tool to record your test runs, review it. Could you have taken smaller steps? Made fewer refactoring mistakes?
-* Did you ever make any refactoring mistakes and then back out your changes? How did it feel to throw away code?
-* What would you say to your colleague if they had written this code?
-* What would you say to your boss about the value of this refactoring work? Was there more reason to do it over and above the extra billable hour or so?
-
-# Get going quickly with Cyber-dojo
-
-As an alternative to downloading the code, click one of the links below to create a new cyber-dojo to work in, then press "enter" to get going coding.
-
-- [Python](http://cyber-dojo.org/forker/fork/435E5C1C88?avatar=moose&tag=5)
-- [Ruby](http://cyber-dojo.org/forker/fork/3367E4B0E9?avatar=raccoon&tag=4)
-- [Java](http://cyber-dojo.org/forker/fork/4D363A34A7?avatar=vulture&tag=3)
-- [C++](http://cyber-dojo.org/forker/fork/A06DCDA217?avatar=wolf&tag=5)
-- [C#](http://cyber-dojo.org/forker/fork/672E047F5D?avatar=buffalo&tag=8)
