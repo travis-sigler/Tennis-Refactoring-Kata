@@ -3,6 +3,7 @@
 ## Purpose and guidelines
 
 - We use this kata as a basis for discussion.  
+- Only care about the C# version of the kata.  We haven't prepared the TypeScript or JavaScript versions.
 - We'll talk about why you made the changes you did, how you did them, and just generally talk about other development principles using this code-base as our common ground.  
 - We're only looking for refactorings here. The overall behaviour of the code should not change. However, you are permitted to change the public interface if you deem it necessary.
 - Fork this repo and make your changes there.  We want to be able to see the resulting commits and code (ideally during your on-site interview).
