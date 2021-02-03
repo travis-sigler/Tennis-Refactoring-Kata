@@ -14,6 +14,11 @@ namespace Tennis
             { 3, "Forty" }
         };
 
+        /// <summary>
+        /// Create a new tennis game with 2 players
+        /// </summary>
+        /// <param name="player1Name">Player 1 Name</param>
+        /// <param name="player2Name">Player 2 Name</param>
         public TennisGame(string player1Name, string player2Name)
         {
             Player1.Name = player1Name;
