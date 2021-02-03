@@ -22,8 +22,11 @@ namespace Tennis
             string score = "";
             var tempScore = 0;
             
+            //TODO = the entire if/else if/else statement can be removed by simply returning a value in each phase.
+            // be sure to account for the order of the ifs to make sure all scores fall into the correct bucket
+
             // if tied, return tied values at each point
-            //TODO - convert to more readable switch statement
+            //TODO - convert to returning switch
             if (Player1.Score == Player2.Score)
             {
                 score = Player1.Score switch
@@ -36,10 +39,11 @@ namespace Tennis
             }
 
             // if either score is 4 or more, get the difference to determine score
-            // TODO - convert to switch
+            // TODO - remove else if and use returning if statements
             else if (Player1.Score >= 4 || Player2.Score >= 4)
             {
                 var minusResult = Player1.Score - Player2.Score;
+                
                 if (minusResult == 1) score = "Advantage player1";
                 else if (minusResult == -1) score = "Advantage player2";
                 else if (minusResult >= 2) score = "Win for player1";
