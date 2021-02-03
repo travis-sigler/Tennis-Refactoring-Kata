@@ -13,35 +13,30 @@ namespace Tennis
 
         public void WonPoint(string playerName)
         {
-            if (playerName == Player1.Name)
-                Player1.Score += 1;
-            else
-                Player2.Score += 1;
+            Player1.Score += playerName == Player1.Name ? 1 : 0;
+            Player2.Score += playerName == Player2.Name ? 1 : 0;
         }
 
         public string GetScore()
         {
             string score = "";
             var tempScore = 0;
+            
+            // if tied, return tied values at each point
+            //TODO - convert to more readable switch statement
             if (Player1.Score == Player2.Score)
             {
-                switch (Player1.Score)
+                score = Player1.Score switch
                 {
-                    case 0:
-                        score = "Love-All";
-                        break;
-                    case 1:
-                        score = "Fifteen-All";
-                        break;
-                    case 2:
-                        score = "Thirty-All";
-                        break;
-                    default:
-                        score = "Deuce";
-                        break;
-
-                }
+                    0 => "Love-All",
+                    1 => "Fifteen-All",
+                    2 => "Thirty-All",
+                    _ => "Deuce",
+                };
             }
+
+            // if either score is 4 or more, get the difference to determine score
+            // TODO - convert to switch
             else if (Player1.Score >= 4 || Player2.Score >= 4)
             {
                 var minusResult = Player1.Score - Player2.Score;
@@ -50,6 +45,10 @@ namespace Tennis
                 else if (minusResult >= 2) score = "Win for player1";
                 else score = "Win for player2";
             }
+
+            // :( error :( error :( 
+            // this is assigning each player their score name based on the score value (should not do this in a loop...)
+            // TODO - this needs to be converted to assign a value to each individual player and load those values into a string
             else
             {
                 for (var i = 1; i < 3; i++)
