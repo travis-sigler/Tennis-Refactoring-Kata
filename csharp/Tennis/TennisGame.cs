@@ -1,9 +1,18 @@
+using System.Collections.Generic;
+
 namespace Tennis
 {
     class TennisGame : ITennisGame
     {
-        PlayerModel Player1 = new PlayerModel();
-        PlayerModel Player2 = new PlayerModel();
+        private readonly PlayerModel Player1 = new PlayerModel();
+        private readonly PlayerModel Player2 = new PlayerModel();
+        private readonly Dictionary<int, string> scoreNames = new Dictionary<int, string>
+        { 
+            { 0, "Love" },
+            { 1, "Fifteen" },
+            { 2, "Thirty" },
+            { 3, "Forty" }
+        };
 
         public TennisGame(string player1Name, string player2Name)
         {
@@ -19,64 +28,22 @@ namespace Tennis
 
         public string GetScore()
         {
-            string score = "";
-            var tempScore = 0;
-            
-            //TODO = the entire if/else if/else statement can be removed by simply returning a value in each phase.
-            // be sure to account for the order of the ifs to make sure all scores fall into the correct bucket
-
-            // if tied, return tied values at each point
-            //TODO - convert to returning switch
             if (Player1.Score == Player2.Score)
             {
-                score = Player1.Score switch
-                {
-                    0 => "Love-All",
-                    1 => "Fifteen-All",
-                    2 => "Thirty-All",
-                    _ => "Deuce",
-                };
+                return Player1.Score >= 3 ? "Deuce" : $"{scoreNames[Player1.Score]}-All";
             }
 
-            // if either score is 4 or more, get the difference to determine score
-            // TODO - remove else if and use returning if statements
-            else if (Player1.Score >= 4 || Player2.Score >= 4)
+            if (Player1.Score >= 4 || Player2.Score >= 4)
             {
-                var minusResult = Player1.Score - Player2.Score;
-                
-                if (minusResult == 1) score = "Advantage player1";
-                else if (minusResult == -1) score = "Advantage player2";
-                else if (minusResult >= 2) score = "Win for player1";
-                else score = "Win for player2";
+                var scoreDiff = Player1.Score - Player2.Score;
+
+                if (scoreDiff == 1) return "Advantage player1";
+                if (scoreDiff == -1) return "Advantage player2";
+                if (scoreDiff >= 2) return "Win for player1"; 
+                return "Win for player2";
             }
 
-            // :( error :( error :( 
-            // this is assigning each player their score name based on the score value (should not do this in a loop...)
-            // TODO - this needs to be converted to assign a value to each individual player and load those values into a string
-            else
-            {
-                for (var i = 1; i < 3; i++)
-                {
-                    if (i == 1) tempScore = Player1.Score;
-                    else { score += "-"; tempScore = Player2.Score; }
-                    switch (tempScore)
-                    {
-                        case 0:
-                            score += "Love";
-                            break;
-                        case 1:
-                            score += "Fifteen";
-                            break;
-                        case 2:
-                            score += "Thirty";
-                            break;
-                        case 3:
-                            score += "Forty";
-                            break;
-                    }
-                }
-            }
-            return score;
+            return $"{scoreNames[Player1.Score]}-{scoreNames[Player2.Score]}";
         }
     }
 }
